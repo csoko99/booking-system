@@ -14,6 +14,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Kijelentkezés gomb
     document.getElementById('logoutBtn').addEventListener('click', async () => {
         await fetch('http://localhost/booking-system/api/logout.php');
-        window.location.href = 'login.html'; // Irányítás vissza a login oldalra
+        window.location.href = 'http://localhost/booking-system/view/html/login.html'; 
     });
 });

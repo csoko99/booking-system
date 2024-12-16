@@ -1,8 +1,10 @@
 <?php
+// Importáljuk a CORS engedélyezését
+require_once 'cors_enable.php';
+
 session_start(); // Session indítása
 
 require_once 'db.php';
-require_once 'cors_enable.php';
 
 // Ellenőrizzük, hogy a kérés valóban POST típusú-e
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -31,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['email'] = $user['email'];
             $_SESSION['role'] = $user['role']; // Role mentése
 
-            // Válasz visszaküldése JSON formátumban
+            // Tisztán JSON válasz visszaküldése
             echo json_encode([
                 'message' => 'Sikeres bejelentkezés!',
                 'role' => $user['role'], // Role visszaküldése

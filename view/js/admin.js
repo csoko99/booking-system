@@ -22,4 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+        await fetch('http://localhost/booking-system/api/logout.php');
+        window.location.href = 'http://localhost/booking-system/view/html/login.html'; // Irányítás vissza a login oldalra
+    });
 });
