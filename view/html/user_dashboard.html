@@ -5,13 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Felhasználói oldal</title>
   <link rel="stylesheet" href="http://localhost/booking-system/view/css/style.css">
+  <link rel="stylesheet" href="http://localhost/booking-system/view/css/navbar.css">
 </head>
 <body>
   <div class="container">
     <h1>Üdvözöljük, <span id="username"></span>!</h1>
-    <nav>
-      <a href="index.html">A főoldalra</a>
-    </nav>  
+      <nav id="navbar">
+          <a href="index.html">Főoldal</a>
+          <div id="authLinks">
+              <a href="login.html" id="loginLink">Bejelentkezés</a>
+              <a href="register.html" id="registerLink">Regisztráció</a>
+          </div>
+      </nav>
     <p>E-mail: <span id="email"></span></p>
     <button id="logoutBtn">Kijelentkezés</button>
 
@@ -22,5 +27,6 @@
   </div>
 
   <script src="http://localhost/booking-system/view/js/user_dashboard.js"></script>
+  <script src="http://localhost/booking-system/view/js/navbar.js"></script>
 </body>
 </html>

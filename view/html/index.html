@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Összes szállás</title>
     <link rel="stylesheet" href="http://localhost/booking-system/view/css/listings.css">
+    <link rel="stylesheet" href="http://localhost/booking-system/view/css/navbar.css">
 </head>
 <body>
     <header>
-        <h1>Szállások listája</h1>
-        <nav>
-            <a href="http://localhost/booking-system/view/html/user_dashboard.html">Profil</a>
+        <h1>Szállások</h1>
+        <nav id="navbar">
+            <a href="index.html">Főoldal</a>
+            <div id="authLinks">
+                <a href="login.html" id="loginLink">Bejelentkezés</a>
+                <a href="register.html" id="registerLink">Regisztráció</a>
+            </div>
         </nav>
     </header>
     <main>
         <div id="listingsContainer"></div>
     </main>
     <script src="http://localhost/booking-system/view/js/index.js"></script>
+    <script src="http://localhost/booking-system/view/js/navbar.js"></script>
 </body>
 </html>

@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Szállás részletei</title>
     <link rel="stylesheet" href="http://localhost/booking-system/view/css/details.css">
+    <link rel="stylesheet" href="http://localhost/booking-system/view/css/navbar.css">
 </head>
 <body>
     <header>
         <h1>Szállás részletei</h1>
-        <nav>
-            <a href="http://localhost/booking-system/view/html/index.html">Vissza a főoldalra</a>
+        <nav id="navbar">
+            <a href="index.html">Vissza a főoldalra</a>
+            <div id="authLinks">
+                <a href="login.html" id="loginLink">Bejelentkezés</a>
+                <a href="register.html" id="registerLink">Regisztráció</a>
+            </div>
         </nav>
     </header>
     <main>
         <div id="listingDetails">Betöltés...</div>
     
-        <!-- Értékelési szekció -->
-
         <div id="ratingSection" >
             <h2>Értékeld ezt a szállást!</h2>
             <div id="stars">
@@ -32,7 +35,6 @@
             <p id="reviewMessage"></p>
         </div>
     
-        <!-- Foglalási űrlap -->
         <div id="bookingForm" style="display: none;">
             <h2>Foglalás</h2>
             <form id="bookingFormElement">
@@ -52,5 +54,6 @@
     </main>
     
     <script src="http://localhost/booking-system/view/js/listing_details.js"></script>
+    <script src="http://localhost/booking-system/view/js/navbar.js"></script>
 </body>
 </html>

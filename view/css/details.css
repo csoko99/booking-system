@@ -35,6 +35,7 @@ main {
     padding: 20px;
 }
 
+/* Listing rész */
 #listingDetails {
     background-color: white;
     padding: 20px;
@@ -72,6 +73,125 @@ main {
     font-weight: bold;
 }
 
+/* Értékelési szekció */
+#ratingSection {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#ratingSection h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+#ratingSection #stars {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#ratingSection #stars span {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.2s ease;
+}
+
+#ratingSection #stars span:hover {
+    color: gold;
+}
+
+#ratingSection textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+#ratingSection button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#ratingSection button:hover {
+    background-color: #2980b9;
+}
+
+#ratingSection #reviewMessage {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+/* Foglalási űrlap */
+#bookingForm {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+    display: none;
+}
+
+#bookingForm h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+#bookingForm form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+#bookingForm label {
+    font-size: 1rem;
+    color: #34495e;
+}
+
+#bookingForm input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+#bookingForm button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#bookingForm button:hover {
+    background-color: #2980b9;
+}
+
+#bookingForm #bookingMessage {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: red;
+}
+
 /* Média lekérdezések (responsive design) */
 @media (max-width: 768px) {
     header h1 {
@@ -93,5 +213,10 @@ main {
 
     #listingDetails p {
         font-size: 0.9rem;
+    }
+
+    /* Stílusok a kisebb képernyőkhöz */
+    #ratingSection, #bookingForm {
+        width: 100%;
     }
 }
