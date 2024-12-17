@@ -32,11 +32,15 @@ $query = "
         listings.price, 
         listings.description, 
         listings.image_url, 
-        hosts.phone AS contact
+        hosts.phone AS contact,
+        COALESCE(AVG(reviews.rating), 0) AS average_rating
     FROM listings
-    INNER JOIN hosts ON listings.host_id = hosts.id
+    LEFT JOIN hosts ON listings.host_id = hosts.id
+    LEFT JOIN reviews ON listings.id = reviews.listing_id
     WHERE listings.id = ?
+    GROUP BY listings.id
 ";
+
 
 $stmt = $conn->prepare($query);
 
