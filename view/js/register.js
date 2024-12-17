@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = e.target.email.value;
             const password = e.target.password.value;
 
-            // Adatok küldése a backendhez
             try {
                 const response = await fetch('http://localhost/booking-system/api/register.php', {
                     method: 'POST',
@@ -23,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 const result = await response.text();
-                alert(result);  // A backend válasza
+                alert(result);  
 
             } catch (error) {
                 console.error('Hiba a regisztráció során:', error);

@@ -1,22 +1,19 @@
 <?php
 require_once 'db.php';
 require_once 'cors_enable.php';
-session_start();  // A session kezelése
+session_start();  
 
-// Ellenőrizzük, hogy a felhasználó be van-e jelentkezve
+
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(['error' => 'Nem vagy bejelentkezve.']);
     exit;
 }
 
-// A bejelentkezett felhasználó ID-ját lekérjük
 $user_id = $_SESSION['user_id'];
 
-// Debug: Kiíratjuk a user_id-t, hogy lássuk, van-e érték
 error_log("Session user_id: " . $user_id);
 
 try {
-    // Csak a bejelentkezett felhasználó foglalásait kérjük le
     $stmt = $pdo->prepare("
         SELECT 
             bookings.id AS booking_id,
@@ -37,7 +34,6 @@ try {
 
     $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Debug: Kiírjuk, hogy milyen foglalásokat találtunk
     error_log("Bookings found: " . print_r($bookings, true));
 
     echo json_encode($bookings);

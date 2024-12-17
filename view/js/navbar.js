@@ -1,8 +1,6 @@
 window.addEventListener('DOMContentLoaded', async () => {
-    // Küldünk egy kérés a szervernek a session állapotának lekérdezésére
     const response = await fetch('http://localhost/booking-system/api/check_session.php');
     
-    // Ha nem sikerült a kérés, hibát dobunk
     if (!response.ok) {
         console.error("Hiba történt a session ellenőrzésénél");
         return;
@@ -15,7 +13,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     const authLinks = document.getElementById('authLinks');
 
     if (data.logged_in) {
-        // Ha be van jelentkezve a felhasználó, akkor a Profil és Kijelentkezés linkek jelennek meg
         loginLink.style.display = 'none';
         registerLink.style.display = 'none';
 
@@ -27,15 +24,13 @@ window.addEventListener('DOMContentLoaded', async () => {
         logoutLink.href = '#';
         logoutLink.textContent = 'Kijelentkezés';
         logoutLink.addEventListener('click', async () => {
-            // Kijelentkezés a session törlésével
             await fetch('http://localhost/booking-system/api/logout.php');
-            window.location.reload();  // Újratöltjük az oldalt kijelentkezés után
+            window.location.reload();  
         });
 
         authLinks.appendChild(profileLink);
         authLinks.appendChild(logoutLink);
     } else {
-        // Ha nincs bejelentkezve, akkor a Bejelentkezés és Regisztráció linkek jelennek meg
         loginLink.style.display = 'inline-block';
         registerLink.style.display = 'inline-block';
     }

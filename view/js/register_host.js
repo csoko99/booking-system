@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 const result = await response.json();
-                alert(result.message); // A backend válasza
+                alert(result.message); 
 
                 if (result.message === "Sikeres regisztráció!") {
-                    window.location.href = 'login.html';  // Átirányítás a bejelentkezési oldalra
+                    window.location.href = 'login.html'; 
                 }
 
             } catch (error) {

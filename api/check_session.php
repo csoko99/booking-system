@@ -10,7 +10,7 @@ if (isset($_SESSION['user_id'])) {
         'email' => $_SESSION['email']
     ]);
 } else {
-    http_response_code(401); // Ha nem jelentkezett be
+    http_response_code(401); 
     echo json_encode([
         'logged_in' => false,
         'error' => 'Nincs bejelentkezve'

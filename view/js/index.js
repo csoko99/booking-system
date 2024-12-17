@@ -3,7 +3,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const listingsContainer = document.getElementById("listingsContainer");
 
-    // Fetch az API-ból
     fetch("http://localhost/booking-system/api/get_all_listings.php")
         .then(response => {
             if (!response.ok) {
@@ -12,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(data => {
-            // Szállások megjelenítése
             if (data.length === 0) {
                 listingsContainer.innerHTML = "<p>Nincs elérhető szállás jelenleg.</p>";
                 return;

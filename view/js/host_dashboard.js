@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const addListingForm = document.getElementById('addListingForm');
     const listingsContainer = document.getElementById('listingsContainer');
-    const host_id = localStorage.getItem('host_id'); // Bejelentkezett host ID-ja
+    const host_id = localStorage.getItem('host_id'); 
 
     if (!host_id) {
         alert("Bejelentkezés szükséges!");
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Szállások betöltése
     async function loadListings() {
         try {
             const response = await fetch(`http://localhost/booking-system/api/get_listings.php?host_id=${host_id}`);
@@ -28,9 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Szállások megjelenítése
     function displayListings(listings) {
-        listingsContainer.innerHTML = ''; // Ürítjük az előző tartalmat
+        listingsContainer.innerHTML = ''; 
 
         if (listings.length === 0) {
             listingsContainer.innerHTML = '<p>Nincsenek feltöltött szállásaid.</p>';
@@ -53,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Szállás feltöltése
     if (addListingForm) {
         addListingForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -82,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (result.message === "Szállás sikeresen feltöltve!") {
                     addListingForm.reset();
-                    loadListings(); // Frissítjük a szállások listáját
+                    loadListings(); 
                 }
             } catch (error) {
                 console.error('Hiba a szállás feltöltése során:', error);
@@ -91,6 +88,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Betöltjük a szállásokat az oldal betöltésekor
     loadListings();
 });

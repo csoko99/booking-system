@@ -1,9 +1,7 @@
 <?php
 require_once 'db.php';
 require_once 'cors_enable.php';
-// Ellenőrizzük, hogy a kérés valóban POST típusú-e
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // JSON beolvasása
     $input = file_get_contents('php://input');
     $data = json_decode($input, true);
 
@@ -15,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Minden mező kitöltése kötelező!");
     }
 
-    // Jelszó hash-elése
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     try {
@@ -27,14 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
         echo "Sikeres regisztráció!";
     } catch (PDOException $e) {
-        if ($e->getCode() === '23000') { // Duplikált email hiba
+        if ($e->getCode() === '23000') { 
             die("Ez az email már létezik!");
         } else {
             die("Hiba történt: " . $e->getMessage());
         }
     }
 } else {
-    // Ha nem POST kérés, akkor 405-öt küldünk vissza
     header("HTTP/1.1 405 Method Not Allowed");
     echo "405 - A POST módszer nem engedélyezett.";
 }

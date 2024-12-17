@@ -1,4 +1,4 @@
-/* Alapstílusok */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -30,12 +30,10 @@ nav a:hover {
     color: #3498db;
 }
 
-/* Fő tartalom */
 main {
     padding: 20px;
 }
 
-/* Listing rész */
 #listingDetails {
     background-color: white;
     padding: 20px;
@@ -73,7 +71,6 @@ main {
     font-weight: bold;
 }
 
-/* Értékelési szekció */
 #ratingSection {
     background-color: white;
     padding: 20px;
@@ -137,7 +134,6 @@ main {
     font-size: 1rem;
 }
 
-/* Foglalási űrlap */
 #bookingForm {
     background-color: white;
     padding: 20px;
@@ -192,7 +188,6 @@ main {
     color: red;
 }
 
-/* Média lekérdezések (responsive design) */
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.5rem;
@@ -215,7 +210,6 @@ main {
         font-size: 0.9rem;
     }
 
-    /* Stílusok a kisebb képernyőkhöz */
     #ratingSection, #bookingForm {
         width: 100%;
     }

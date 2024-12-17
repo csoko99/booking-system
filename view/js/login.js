@@ -20,23 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     throw new Error(`HTTP hiba: ${response.status}`);
                 }
 
-                const result = await response.json(); // A válasz most már JSON formátumban érkezik
-                console.log(result); // Ellenőrizd a válasz tartalmát
+                const result = await response.json(); 
+                console.log(result); 
 
                 if (result.message === "Sikeres bejelentkezés!") {
-                    // Ha sikeres, akkor mentjük a role-t és a többi adatot a sessionStorage-ba (vagy localStorage)
                     localStorage.setItem('role', result.role);
                     localStorage.setItem('user_id', result.user_id);
                     localStorage.setItem('username', result.username);
 
                     const role = localStorage.getItem('role');
-                    console.log("Role: " + role); // Ellenőrizd, hogy a role helyesen van beállítva
+                    console.log("Role: " + role); 
 
-                    // Role alapján irányítás
                     if (role === "admin") {
-                        window.location.href = 'admin_dashboard.html'; // Admin felület
+                        window.location.href = 'admin_dashboard.html'; 
                     } else if (role === "user") {
-                        window.location.href = 'user_dashboard.html'; // Felhasználói felület
+                        window.location.href = 'user_dashboard.html'; 
                     } else {
                         console.log("Nem ismert szerep.");
                     }

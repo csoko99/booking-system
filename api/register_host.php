@@ -19,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     try {
-        // Ellenőrizzük, hogy az email már létezik-e
         $stmt = $pdo->prepare("SELECT * FROM hosts WHERE email = :email");
         $stmt->execute([':email' => $email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -29,10 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        // Jelszó titkosítása
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Felhasználó regisztrálása
         $stmt = $pdo->prepare("INSERT INTO hosts (username, email, password, phone, role) VALUES (:username, :email, :password, :phone, 'host')");
         $stmt->execute([':username' => $username, ':email' => $email, ':password' => $hashed_password, ':phone' => $phone]);
 

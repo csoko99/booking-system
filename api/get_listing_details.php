@@ -1,14 +1,12 @@
 <?php
 header("Content-Type: application/json");
 
-// PHP hibamegjelenítés fejlesztési környezetben
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include_once "db.php";
 
-// Ellenőrizzük a listing_id paramétert
 if (!isset($_GET['listing_id']) || !is_numeric($_GET['listing_id'])) {
     echo json_encode(['error' => 'Hibás vagy hiányzó szállás azonosító.']);
     exit;
@@ -16,7 +14,6 @@ if (!isset($_GET['listing_id']) || !is_numeric($_GET['listing_id'])) {
 
 $listing_id = (int) $_GET['listing_id'];
 
-// Adatbázis kapcsolat
 $conn = new mysqli('localhost', 'root', '', 'booking_system');
 
 if ($conn->connect_error) {
@@ -24,7 +21,6 @@ if ($conn->connect_error) {
     exit;
 }
 
-// Szállás adatainak és host elérhetőségének lekérdezése
 $query = "
     SELECT 
         listings.name, 

@@ -3,7 +3,7 @@ require_once 'db.php';
 require_once 'cors_enable.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $host_id = $_GET['host_id'] ?? null; // Lekért host ID
+    $host_id = $_GET['host_id'] ?? null; 
 
     if (!$host_id) {
         echo json_encode(['message' => 'Host ID szükséges a lekéréshez!']);

@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert(result.message);
 
                 if (result.message === "Sikeres bejelentkezés!") {
-                    // Tároljuk a host ID-t és átirányítjuk a dashboard-ra
                     localStorage.setItem('host_id', result.host_id);
                     window.location.href = 'host_dashboard.html';
                 }

@@ -40,14 +40,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <p><strong>Leírás:</strong> ${data.description}</p>
                 <p><strong>Elérhetőség:</strong> ${data.contact || "Nincs elérhetőség megadva."}</p>
             `;
-            bookingForm.style.display = "block"; // Megjeleníti a foglalási űrlapot
+            bookingForm.style.display = "block"; 
 
-            // Értékelések átlagának megjelenítése
             if (data.average_rating) {
                 detailsContainer.innerHTML += `<p><strong>Átlagos értékelés:</strong> ${data.average_rating} &#9733;</p>`;
             }
 
-            // Értékelés szekció megjelenítése
             ratingSection.style.display = "block";
         }
     } catch (error) {
@@ -55,14 +53,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         detailsContainer.innerHTML = "<p>Hiba történt az adatok betöltése során.</p>";
     }
 
-    // Lekérjük a felhasználó session adatait
     let userId = null;
     try {
         const sessionResponse = await fetch("http://localhost/booking-system/api/check_session.php");
 
         if (sessionResponse.ok) {
             const sessionData = await sessionResponse.json();
-            userId = sessionData.user_id; // Ha be van jelentkezve, beállítjuk a user_id-t
+            userId = sessionData.user_id; 
         } else {
             bookingMessage.textContent = "Nincs bejelentkezve a felhasználó.";
             bookingMessage.style.color = "red";
@@ -75,19 +72,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    // A csillagok kiválasztása
     let selectedRating = 0;
     Array.from(stars).forEach(star => {
         star.addEventListener("click", () => {
             selectedRating = parseInt(star.getAttribute("data-value"));
-            Array.from(stars).forEach(star => star.style.color = "gray"); // Reset all stars
+            Array.from(stars).forEach(star => star.style.color = "gray");
             for (let i = 0; i < selectedRating; i++) {
-                stars[i].style.color = "gold"; // Highlight selected stars
+                stars[i].style.color = "gold";
             }
         });
     });
 
-    // Értékelés beküldése
     submitReviewButton.addEventListener("click", async () => {
         if (selectedRating === 0) {
             reviewMessage.textContent = "Kérlek válassz egy csillagot!";
@@ -111,7 +106,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 })
             });
     
-            // Ellenőrizzük, hogy a válasz státusza 200 (sikeres)
             if (!response.ok) {
                 console.error("HTTP hiba történt:", response.status, response.statusText);
                 reviewMessage.textContent = "Hiba az értékelés elküldésekor!";
@@ -121,7 +115,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     
             const result = await response.json();
     
-            // Ellenőrizzük, hogy a válasz sikeres
             if (result.message === "Értékelés sikeresen rögzítve.") {
                 reviewMessage.textContent = "Köszönjük az értékelésedet!";
                 reviewMessage.style.color = "green";
