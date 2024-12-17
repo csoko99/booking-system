@@ -3,7 +3,6 @@ require_once 'cors_enable.php';
 
 session_start();
 
-
 if (isset($_SESSION['user_id'])) {
     // Ha a session tartalmazza a felhasználó adatokat, visszaadjuk azokat
     echo json_encode([
@@ -12,5 +11,6 @@ if (isset($_SESSION['user_id'])) {
     ]);
 } else {
     http_response_code(401); // Ha nincs session, akkor nem engedélyezett
+    echo json_encode(['error' => 'Nincs bejelentkezve']);
 }
 ?>
